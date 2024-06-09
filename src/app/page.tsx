@@ -22,7 +22,7 @@ import Image from "next/image";
 export default function App() {
   const theme = useTheme();
   // const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isLargeScreen = useMediaQuery('(min-width:1500px)');
+  const isLargeScreen = useMediaQuery("(min-width:1500px)");
 
   return (
     <Stack
@@ -30,8 +30,8 @@ export default function App() {
       flexDirection={"column"}
       // minWidth={isSmallScreen ? "320px" : "480px"}
       // bgcolor={'red'}
-      pl={isLargeScreen ? '15%' : 0}
-      pr={isLargeScreen ? '15%' : 0}
+      pl={isLargeScreen ? "15%" : 0}
+      pr={isLargeScreen ? "15%" : 0}
     >
       <Stack
         display={"flex"}
@@ -49,34 +49,49 @@ export default function App() {
         >
           <Image src={HomeImage} alt="home" layout="fill" objectFit="cover" />
         </Box>
-        <Box flex={1} p={5} alignContent={"space-around"} 
-        // bgcolor={'blue'}
+        <Box
+          flex={1}
+          p={5}
+          alignContent={"space-around"}
+          // bgcolor={'blue'}
         >
           <Stack display={"flex"} flexDirection={"row"}>
-            <Typography variant="h5" fontWeight={"bold"} mr={2}>
+            <Button
+              variant="text"
+              sx={{
+                color: "black",
+                fontSize: "1.25rem",
+                fontWeight: "bold",
+              }}
+              href="https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%ED%9E%88%EC%96%B4%EB%A1%9C/place/1532760380?c=16.00,0,0,0,dh&placePath=/home"
+              target="_blank"
+            >
               카페히어로
-            </Typography>
-            <Typography variant="h6" mr={3}>
+            </Button>
+            <Typography variant="h6" mr={2} alignContent={"center"}>
               카페
             </Typography>
             <Rating
               sx={{
                 color: theme.palette.primary.main,
+                alignItems: "center",
+                pb: 1,
               }}
               name="rate"
               value={5}
             />
           </Stack>
           <Stack display={"flex"}>
-            <Stack pt={5}>
+            <Stack>
               <Typography
+                p={2}
                 whiteSpace={"pre-wrap"}
                 fontSize={"0.8rem"}
                 letterSpacing={1}
-                lineHeight={1.5}
+                lineHeight={1.8}
               >{`고급 커피원두를 사용하여 커피가 맛있습니다
- 레몬,자몽,청귤,대추,생강,바닐라시럽등 대부분의 카페 재료는 모두 수제로 만들고 있습니다
- 디저트로 말렌카 케잌 인기있고, 크로플.수제쿠키.스콘.모카번 등
+레몬,자몽,청귤,대추,생강,바닐라시럽등 대부분의 카페 재료는 모두 수제로 만들고 있습니다
+디저트로 말렌카 케이크가 인기있고, 크로플.수제쿠키.스콘.모카번 등
  울산의 임영웅 팬카페입니다 항상 건강하시고 행복하세요
 → 8시30분 마지막 주문하시면 매장내에서 드시고 가실수 있습니다`}</Typography>
             </Stack>
@@ -84,10 +99,16 @@ export default function App() {
               <Stack
                 display={"flex"}
                 flexDirection={"row"}
-                gap={2}
                 alignItems={"center"}
               >
-                <PlaceOutlinedIcon color="primary" />
+                <Box
+                  display={"flex"}
+                  p={2}
+                  alignItems={"center"}
+                  justifyItems={"center"}
+                >
+                  <PlaceOutlinedIcon color="primary" />
+                </Box>
                 <Button variant="text" sx={{ color: "black" }}>
                   경북 안동시 대석4길 9
                 </Button>
@@ -95,10 +116,16 @@ export default function App() {
               <Stack
                 display={"flex"}
                 flexDirection={"row"}
-                gap={2}
                 alignItems={"center"}
               >
-                <CallIcon color="primary" />
+                <Box
+                  display={"flex"}
+                  p={2}
+                  alignItems={"center"}
+                  justifyItems={"center"}
+                >
+                  <CallIcon color="primary" />
+                </Box>
                 <Button variant="text" sx={{ color: "black" }}>
                   0507-1438-8120
                 </Button>
@@ -106,10 +133,16 @@ export default function App() {
               <Stack
                 display={"flex"}
                 flexDirection={"row"}
-                gap={2}
                 alignItems={"center"}
               >
-                <LanguageIcon color="primary" />
+                <Box
+                  display={"flex"}
+                  p={2}
+                  alignItems={"center"}
+                  justifyItems={"center"}
+                >
+                  <LanguageIcon color="primary" />
+                </Box>
                 <Button
                   variant="text"
                   href="https://blog.naver.com/hc105402"
@@ -124,34 +157,56 @@ export default function App() {
               <Stack
                 display={"flex"}
                 flexDirection={"row"}
-                gap={2}
+                // gap={2}
                 alignItems={"center"}
               >
-                <ChecklistOutlinedIcon color="primary" />
-                <Button variant="text" sx={{ color: "black" }}>
+                <Box
+                  display={"flex"}
+                  p={2}
+                  alignItems={"center"}
+                  justifyItems={"center"}
+                >
+                  <ChecklistOutlinedIcon color="primary" />
+                </Box>
+                <Button
+                  variant="text"
+                  sx={{ color: "black" }}
+                  href="https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%ED%9E%88%EC%96%B4%EB%A1%9C/place/1532760380?c=16.00,0,0,0,dh&placePath=/information"
+                  target="_blank"
+                >
                   포장, 무선 인터넷, 예약, 유아의자, 주차
                 </Button>
               </Stack>
               <Stack
                 display={"flex"}
                 flexDirection={"row"}
-                gap={2}
-                alignItems={"center"}
+                // gap={2}
+                // alignItems={"center"}
               >
-                <InfoOutlinedIcon color="primary" />
-                <Typography
-                  variant="h6"
+                <Box
+                  display={"flex"}
                   p={2}
-                  whiteSpace={"pre-line"}
-                  sx={{
-                    color: "black",
-                  }}
+                  // alignItems={"center"}
+                  justifyItems={"center"}
                 >
-                  {`카페 옆 무료주차장 있으나 협소합니다
+                  <InfoOutlinedIcon color="primary" />
+                </Box>
+                <Box>
+                  <Typography
+                    variant="h6"
+                    p={2}
+                    whiteSpace={"pre-line"}
+                    sx={{
+                      color: "black",
+                    }}
+                  >
+                    {`카페 옆 무료주차장 있으나 협소합니다
                 카페 옆 주차가 안되시면, 300m인근에 공영주차장이 있습니다
-                안동구시장공영주차장 · 안동시 번영1길 25-12
+                안동 구시장 공영주차장 · 안동시 번영1길 25-12
                 30분 500원, 60분 1,100원`}
-                </Typography>
+                  </Typography>
+                  <Button> 안동 구시장 공영주차장 · 안동시 번영1길 25-12</Button>
+                </Box>
               </Stack>
             </Stack>
           </Stack>
