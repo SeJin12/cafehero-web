@@ -59,7 +59,11 @@ export default function App() {
       // bgcolor={'red'}
       pl={isLargeScreen ? "15%" : 0}
       pr={isLargeScreen ? "15%" : 0}
-      maxWidth={600}
+      // maxWidth={800}
+      justifyContent={'center'}
+      justifyItems={'center'}
+      alignContent={'center'}
+      alignItems={'center'}
     >
       <Stack>
         <Box
