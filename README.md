@@ -1,20 +1,20 @@
 # 카페히어로 웹 앱 개발
 
-> 
+> 카페히어로 손님들이 자리에서 메뉴를 볼 수 있는 웹사이트 개발
+
+
 
 [Cafe Hero](https://cafehero.netlify.app/)
 
-![QRCode](./qr.png)
+
+<img src="./cafemenu.png" alt="Cafe Menu" width="200" height="200"/>
 
 ## Stack
-- Next.js
-- React
-- Redux
-- Mui (Material UI)
-- Naver Cloud Map
-
-
-
+✅ Next.js<br> 
+✅ React<br>
+✅ Redux<br>
+✅ Mui (Material UI)<br>
+✅ Naver Cloud Map
 
 ### 참고 사이트
 
