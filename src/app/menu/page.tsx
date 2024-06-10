@@ -158,7 +158,7 @@ export default function MenuScreen() {
               whiteSpace={"pre-line"}
             >
               {`메뉴를 담고, 1층에서 주문 내역을 보여주세요 
-(결제는 1층에서 진행)
+(결제는 1층 카운터에서 진행)
               `}
             </Typography>
           </Box>
