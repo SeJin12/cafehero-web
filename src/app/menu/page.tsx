@@ -182,6 +182,7 @@ export default function MenuScreen() {
                           fontWeight: "bold",
                           fontSize: 14,
                           color: "white",
+                          width:200
                         }}
                       >
                         가격
