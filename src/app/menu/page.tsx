@@ -10,6 +10,8 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import PaymentIcon from "@mui/icons-material/Payment";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
+import DoNotDisturbAltOutlinedIcon from '@mui/icons-material/DoNotDisturbAltOutlined';
+import LocalCafeOutlinedIcon from '@mui/icons-material/LocalCafeOutlined';
 import {
   Box,
   Button,
@@ -60,15 +62,13 @@ const MenuCard = ({ menu, onClick }: MenuCardProps) => {
           }}
         />
       </Box>
-      <Stack
-        gap={1}
-        pl={5}
-        maxWidth={500}
-      >
+      <Stack gap={1} pl={5} maxWidth={500}>
         <Box display={"flex"} justifyContent={"space-between"}>
           <Box display={"flex"} flexDirection={"row"}>
             <Box alignContent={"center"} mr={2}>
-              <Typography fontSize={'14px'} fontWeight={'bold'}>{menu.title}</Typography>
+              <Typography fontSize={"14px"} fontWeight={"bold"}>
+                {menu.title}
+              </Typography>
             </Box>
             {menu.isRecommand && (
               <Box alignContent={"center"}>
@@ -78,17 +78,22 @@ const MenuCard = ({ menu, onClick }: MenuCardProps) => {
           </Box>
         </Box>
         <Typography variant="h6">{menu.description}</Typography>
-        <Stack display={"flex"} flexDirection={"row"}
-        justifyContent={'space-between'}>
-          <Box
-            alignContent={'center'}
-          >
+        <Stack
+          display={"flex"}
+          flexDirection={"row"}
+          justifyContent={"space-between"}
+        >
+          <Box alignContent={"center"}>
             <Typography>
               <b>{formatNumber(menu.price)}</b>원
             </Typography>
           </Box>
           <Box>
-            <Button variant="outlined" size="small" onClick={() => onClick(menu)}>
+            <Button
+              variant="outlined"
+              size="small"
+              onClick={() => onClick(menu)}
+            >
               <AddShoppingCartOutlinedIcon color="primary" />
             </Button>
           </Box>
@@ -158,8 +163,8 @@ export default function MenuScreen() {
             </Typography>
           </Box>
           {shoppingList.length > 0 && (
-            <>
-              <TableContainer component={Paper}>
+            <Stack display={"flex"}>
+              <TableContainer component={Paper} sx={{ flex: 1 }}>
                 <Table aria-label="customized table">
                   <TableHead
                     sx={{
@@ -172,7 +177,7 @@ export default function MenuScreen() {
                           fontWeight: "bold",
                           fontSize: 14,
                           color: "white",
-                          width: 400,
+                          // width: '50%'
                         }}
                       >
                         메뉴
@@ -182,7 +187,8 @@ export default function MenuScreen() {
                           fontWeight: "bold",
                           fontSize: 14,
                           color: "white",
-                          width:200
+                          width: "25%",
+                          textAlign: "center",
                         }}
                       >
                         가격
@@ -212,20 +218,23 @@ export default function MenuScreen() {
                         <TableCell
                           component="th"
                           scope="row"
-                          sx={{ fontSize: 14 }}
+                          sx={{ fontSize: 14, textAlign: "center" }}
                         >
                           <b>{formatNumber(row.price)}</b>원
                         </TableCell>
                         <TableCell
                           align="center"
-                          sx={{ fontWeight: "500", fontSize: 13 }}
+                          sx={{ fontWeight: "500", fontSize: 13, width: "20%" }}
                         >
                           <Box display={"flex"} justifyContent={"center"}>
-                            <Button onClick={() => deleteMenu(row)}>
+                            <Button
+                              variant="text"
+                              onClick={() => deleteMenu(row)}
+                            >
                               <RemoveOutlinedIcon />
                             </Button>
                             <Box alignContent={"center"}>{row.count}</Box>
-                            <Button onClick={() => addMenu(row)}>
+                            <Button variant="text" onClick={() => addMenu(row)}>
                               <AddOutlinedIcon />
                             </Button>
                           </Box>
@@ -243,15 +252,32 @@ export default function MenuScreen() {
                 alignItems={"center"}
               >
                 <Button
-                  startIcon={<DeleteOutlineOutlinedIcon />}
+                  startIcon={<DoNotDisturbAltOutlinedIcon />}
                   variant="outlined"
                   onClick={() => initMenu()}
                   sx={{
+                    ml: 2,
                     height: 40,
                     fontWeight: "bold",
                   }}
                 >
                   초기화
+                </Button>
+                <Button
+                  startIcon={<LocalCafeOutlinedIcon />}
+                  variant="outlined"
+                  sx={{
+                    ml: 2,
+                    height: 40,
+                  }}
+                >
+                  <Typography color={"black"} fontWeight={"bold"} fontSize={14}>
+                    {formatNumber(
+                      shoppingList.reduce((sum, item) => {
+                        return sum +  item.count;
+                      }, 0)
+                    ) + " 개"}
+                  </Typography>
                 </Button>
                 <Button
                   startIcon={<PaymentIcon />}
@@ -270,7 +296,7 @@ export default function MenuScreen() {
                   </Typography>
                 </Button>
               </Stack>
-            </>
+            </Stack>
           )}
         </Stack>
       </Stack>
