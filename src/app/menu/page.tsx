@@ -30,22 +30,6 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import { menuList } from "./menuItem";
 
-export const scrollToSection = (sectionId: string) => {
-  const sectionElement = document.getElementById(sectionId);
-  const menuTopElement = document.getElementById("menuTop");
-
-  if (sectionElement && menuTopElement) {
-    const offset = sectionElement.offsetTop - menuTopElement.offsetTop;
-
-    const targetScroll = sectionElement.offsetTop - offset;
-    sectionElement.scrollIntoView({ behavior: "smooth" });
-    window.scrollTo({
-      top: targetScroll,
-      behavior: "smooth",
-    });
-  }
-};
-
 interface MenuCardProps {
   menu: MenuItemType;
   onClick: (menu: MenuItemType) => void;
@@ -248,7 +232,7 @@ export default function MenuScreen() {
                   onClick={() => initMenu()}
                   sx={{
                     height: 40,
-                    fontWeight:'bold'
+                    fontWeight: "bold",
                   }}
                 >
                   초기화

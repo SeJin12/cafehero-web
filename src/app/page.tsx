@@ -21,8 +21,21 @@ import Image from "next/image";
 
 export default function App() {
   const theme = useTheme();
-  // const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLargeScreen = useMediaQuery("(min-width:1500px)");
+
+  const scrollToSection = (sectionId: string) => {
+    const sectionElement = document.getElementById(sectionId);
+    const offset = 128;
+
+    if (sectionElement) {
+      const targetScroll = sectionElement.offsetTop - offset;
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+      window.scrollTo({
+        top: targetScroll,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <Stack
@@ -109,7 +122,11 @@ export default function App() {
                 >
                   <PlaceOutlinedIcon color="primary" />
                 </Box>
-                <Button variant="text" sx={{ color: "black" }}>
+                <Button
+                  variant="text"
+                  sx={{ color: "black" }}
+                  onClick={() => scrollToSection("Location")}
+                >
                   경북 안동시 대석4길 9
                 </Button>
               </Stack>
@@ -205,7 +222,16 @@ export default function App() {
                 안동 구시장 공영주차장 · 안동시 번영1길 25-12
                 30분 500원, 60분 1,100원`}
                   </Typography>
-                  <Button> 안동 구시장 공영주차장 · 안동시 번영1길 25-12</Button>
+                  <Button startIcon={<PinDropOutlinedIcon />}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: "black",
+                      }}
+                    >
+                      안동 구시장 공영주차장 · 안동시 번영1길 25-12
+                    </Typography>
+                  </Button>
                 </Box>
               </Stack>
             </Stack>
@@ -214,6 +240,7 @@ export default function App() {
       </Stack>
       <Stack p={2}>
         <Stack
+          id={"Location"}
           height={50}
           justifyContent={"center"}
           // borderRadius={theme.shape.borderRadius}
