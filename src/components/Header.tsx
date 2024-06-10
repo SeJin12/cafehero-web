@@ -23,10 +23,10 @@ const items: (ItemType | undefined)[] = [
     title: "메뉴",
   },
   ,
-  {
-    path: "/gallery",
-    title: "갤러리",
-  },
+  // {
+  //   path: "/gallery",
+  //   title: "갤러리",
+  // },
 ];
 
 const filteredItems: ItemType[] = items.filter(
