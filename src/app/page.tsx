@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import HomeImage from "../assets/homeimage.png";
+import HomeImage from "../assets/cafehero2.png";
 import dynamic from "next/dynamic";
 
 // import NaverCloudContainer from "@/components/NaverCloudContainer";
@@ -59,14 +59,9 @@ export default function App() {
       // bgcolor={'red'}
       pl={isLargeScreen ? "15%" : 0}
       pr={isLargeScreen ? "15%" : 0}
+      maxWidth={600}
     >
-      <Stack
-        display={"flex"}
-        flexDirection={"row"}
-        justifyContent={"center"}
-        mb={2}
-        alignContent={"space-around"}
-      >
+      <Stack>
         <Box
           flex={1}
           position="relative"
@@ -81,6 +76,13 @@ export default function App() {
             }}
           />
         </Box>
+      </Stack>
+      <Stack
+        display={"flex"}
+        flexDirection={"row"}
+        justifyContent={"center"}
+        mb={2}
+      >
         <Box
           flex={2}
           p={5}
@@ -127,7 +129,7 @@ export default function App() {
  울산의 임영웅 팬카페입니다 항상 건강하시고 행복하세요
 → 8시30분 마지막 주문하시면 매장내에서 드시고 가실수 있습니다`}</Typography>
             </Stack>
-            <Stack mt={5}>
+            <Stack>
               <Stack
                 display={"flex"}
                 flexDirection={"row"}
@@ -227,7 +229,7 @@ export default function App() {
                 >
                   <InfoOutlinedIcon color="primary" />
                 </Box>
-                <Box>
+                <Box display={"flex"} flexDirection={"column"}>
                   <Typography
                     variant="h6"
                     p={2}
@@ -239,18 +241,16 @@ export default function App() {
                     {`카페 옆 무료주차장 있으나 협소합니다
                 카페 옆 주차가 안되시면, 300m인근에 공영주차장이 있습니다 (30분 500원, 60분 1,100원)`}
                   </Typography>
-                  <Button
-                    variant="contained"
-                    // startIcon={<PinDropOutlinedIcon />}
-                    onClick={() => setOpen(true)}
-                  >
+                  <Button variant="contained" onClick={() => setOpen(true)}>
                     <Typography
                       variant="h6"
                       sx={{
                         color: "white",
                       }}
+                      whiteSpace={"pre-line"}
                     >
-                      안동 구시장 공영주차장 · 안동시 번영1길 25-12
+                      {`안동 구시장 공영주차장
+안동시 번영1길 25-12`}
                     </Typography>
                   </Button>
                 </Box>
@@ -314,7 +314,7 @@ export default function App() {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 600,
+            width: "80%",
             p: 5,
           }}
         >

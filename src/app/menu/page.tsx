@@ -35,19 +35,19 @@ interface MenuCardProps {
   onClick: (menu: MenuItemType) => void;
 }
 
-const width = 700;
+// const width = 700;
 
 const MenuCard = ({ menu, onClick }: MenuCardProps) => {
   return (
     <Stack
       display={"flex"}
       flexDirection={"row"}
-      pl={5}
-      pr={5}
-      mt={1}
-      mb={1}
-      width={width}
-      gap={1}
+      // pl={5}
+      // pr={5}
+      // mt={2}
+      mb={7}
+      // width={width}
+      // gap={1}
     >
       <Box alignContent={"center"} width={150}>
         <Image
@@ -60,11 +60,15 @@ const MenuCard = ({ menu, onClick }: MenuCardProps) => {
           }}
         />
       </Box>
-      <Stack gap={2} p={5} width={width -150}>
+      <Stack
+        gap={1}
+        pl={5}
+        maxWidth={500}
+      >
         <Box display={"flex"} justifyContent={"space-between"}>
           <Box display={"flex"} flexDirection={"row"}>
             <Box alignContent={"center"} mr={2}>
-              <Typography variant="h5">{menu.title}</Typography>
+              <Typography fontSize={'14px'} fontWeight={'bold'}>{menu.title}</Typography>
             </Box>
             {menu.isRecommand && (
               <Box alignContent={"center"}>
@@ -72,16 +76,23 @@ const MenuCard = ({ menu, onClick }: MenuCardProps) => {
               </Box>
             )}
           </Box>
+        </Box>
+        <Typography variant="h6">{menu.description}</Typography>
+        <Stack display={"flex"} flexDirection={"row"}
+        justifyContent={'space-between'}>
+          <Box
+            alignContent={'center'}
+          >
+            <Typography>
+              <b>{formatNumber(menu.price)}</b>원
+            </Typography>
+          </Box>
           <Box>
-            <Button variant="outlined" onClick={() => onClick(menu)}>
+            <Button variant="outlined" size="small" onClick={() => onClick(menu)}>
               <AddShoppingCartOutlinedIcon color="primary" />
             </Button>
           </Box>
-        </Box>
-        <Typography>{menu.description}</Typography>
-        <Typography>
-          <b>{formatNumber(menu.price)}</b>원
-        </Typography>
+        </Stack>
       </Stack>
     </Stack>
   );
@@ -110,16 +121,16 @@ export default function MenuScreen() {
   return (
     <Stack
       p={5}
-      alignItems={"center"}
+      // alignItems={"center"}
       minWidth={isSmallScreen ? "320px" : "480px"}
     >
       <Stack id="menuTop">
-        <Stack width={width} mb={10}>
+        <Stack mb={10}>
           <Box
             border={1}
             borderColor={theme.palette.primary.main}
             display={"flex"}
-            alignContent={"center"}
+            // alignContent={"center"}
             alignItems={"center"}
             height={50}
             mb={shoppingList.length > 0 ? 5 : 0}
@@ -133,19 +144,23 @@ export default function MenuScreen() {
               <InfoOutlinedIcon color="primary" fontSize="medium" />
             </Box>
             <Typography
+              flex={1}
               variant="h6"
               // color={theme.palette.primary.main}
               sx={{
                 color: "black",
               }}
+              whiteSpace={"pre-line"}
             >
-              메뉴를 담고, 1층에서 주문 내역을 보여주세요 (결제는 1층에서 진행)
+              {`메뉴를 담고, 1층에서 주문 내역을 보여주세요 
+(결제는 1층에서 진행)
+              `}
             </Typography>
           </Box>
           {shoppingList.length > 0 && (
             <>
               <TableContainer component={Paper}>
-                <Table sx={{ width: width }} aria-label="customized table">
+                <Table aria-label="customized table">
                   <TableHead
                     sx={{
                       backgroundColor: theme.palette.primary.main,

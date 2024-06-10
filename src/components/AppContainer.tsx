@@ -13,7 +13,7 @@ const AppContainer = ({ children, height }: Props) => {
   return (
     <Provider store={store}>
       <Stack marginTop={height}
-      //  alignItems={"center"}
+       alignItems={"center"}
        >
         {children}
       </Stack>
