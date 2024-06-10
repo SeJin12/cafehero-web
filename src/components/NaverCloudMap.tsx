@@ -1,9 +1,16 @@
+"use client";
+
+// import dynamic from "next/dynamic";
 import {
   Container as MapDiv,
   Marker,
   NaverMap,
   useNavermaps,
 } from "react-naver-maps";
+
+// const MapDiv = dynamic(() => import("react-naver-maps").then(mod => mod.Container), {
+//   ssr: false,
+// });
 
 interface Props {
   lat: number;
@@ -41,7 +48,6 @@ const NaverCloudMap = (props: Props) => {
             lat,
             lng,
           }}
-          // icon={marker}
           //   animation={naver.maps.Animation.DROP}
         />
       </NaverMap>

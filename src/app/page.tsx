@@ -1,7 +1,5 @@
 "use client";
 
-import HomeImage from "@/assets/cafehero.jpg";
-import NaverCloudContainer from "@/components/NaverCloudContainer";
 import CallIcon from "@mui/icons-material/Call";
 import ChecklistOutlinedIcon from "@mui/icons-material/ChecklistOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -19,12 +17,25 @@ import {
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import HomeImage from "../assets/homeimage.png";
+import dynamic from "next/dynamic";
+
+// import NaverCloudContainer from "@/components/NaverCloudContainer";
+const NaverCloudContainer = dynamic(
+  () => import("@/components/NaverCloudContainer"),
+  { ssr: false }
+);
 
 export default function App() {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery("(min-width:1500px)");
   const [open, setOpen] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const sectionElement = document.getElementById(sectionId);
@@ -58,15 +69,20 @@ export default function App() {
       >
         <Box
           flex={1}
-          bgcolor={"#00ffff"}
           position="relative"
-          // maxWidth={500}
-          // minWidth={isSmallScreen ? "320px" : "480px"}
+          display={"flex"}
+          alignItems={"center"}
         >
-          <Image src={HomeImage} alt="home" layout="fill" objectFit="cover" />
+          <Image
+            src={HomeImage}
+            alt="home"
+            style={{
+              flex: 1,
+            }}
+          />
         </Box>
         <Box
-          flex={1}
+          flex={2}
           p={5}
           alignContent={"space-around"}
           // bgcolor={'blue'}
@@ -277,12 +293,13 @@ export default function App() {
               </li>
             </ul>
           </Typography>
-
-          <NaverCloudContainer
-            lat={36.5662431}
-            lng={128.7269388}
-            height={500}
-          />
+          {isClient && (
+            <NaverCloudContainer
+              lat={36.5662431}
+              lng={128.7269388}
+              height={500}
+            />
+          )}
         </Stack>
       </Stack>
       <Modal
@@ -301,11 +318,7 @@ export default function App() {
             p: 5,
           }}
         >
-          <Stack
-            // bgcolor={theme.palette.background.default}
-            display={"flex"}
-            flexDirection={"row"}
-          >
+          <Stack display={"flex"} flexDirection={"row"}>
             <Typography
               variant="h6"
               fontWeight={"bold"}
@@ -315,11 +328,13 @@ export default function App() {
               안동 구시장 공영주차장 · 안동시 번영1길 25-12
             </Typography>
           </Stack>
-          <NaverCloudContainer
-            lat={36.5646828}
-            lng={128.7271418}
-            height={500}
-          />
+          {isClient && (
+            <NaverCloudContainer
+              lat={36.5646828}
+              lng={128.7271418}
+              height={500}
+            />
+          )}
         </Box>
       </Modal>
     </Stack>
