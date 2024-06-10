@@ -441,6 +441,116 @@ export const menuList: MenuItemType[] = [
         isRecommand: false
         , count: 0
     },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20230601_220/1685630125014oDLzu_PNG/SmartSelect_20230523_164322_Gallery.png",
+        title: "크로플(2개)",
+        description:
+            "크로와상으로 만들어 겉바속촉🥐 토핑/메이플.카라멜.시나몬.연유.초코 아이스크림1.000원",
+        price: 8000,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20230601_162/1685630335632E5JSM_PNG/SmartSelect_20230601_170238_Gallery.png",
+        title: "크로플(2개.블루베리)",
+        description:
+            "크로와상으로 만들어 겉바속촉~🥐 토핑ㆍ수제블루베리🫐아이스크림 추가1000원",
+        price: 9000,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20240505_11/17148804469079jMND_PNG/20240505_120408.png",
+        title: "말렌카케이크(월넛호두)",
+        description:
+            "달콤하고 신선한 꿀어 들어가 쫀득하고 맛있는 말렌카 시그니처 월넛 호두 말렌카케이크",
+        price: 6500,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20240505_74/1714880252279yW2G9_PNG/SmartSelect_20240505-120102_Gallery.png",
+        title: "말렌카케이크(살구)",
+        description:
+            "상큼한 살구와 달콤한 꿀이 만나 쫀득하고 맛있는,살구가 씹혀서 더 맛있는 살구말렌카케이크",
+        price: 6500,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20240505_40/1714880122167cHXXN_PNG/20240505_120353.png",
+        title: "말렌카케이크(시나몬)",
+        description:
+            "기분좋게 퍼지는 시나몬향과 달콤한 꿀이 조화로운 고급스럽게 맛있는 시나몬 말렌카케이크",
+        price: 6500,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20240505_194/17148787836625OVPv_PNG/20240505_120317.png",
+        title: "말렌카케이크(레몬)",
+        description:
+            "상큼한 레몬향과 달콤한 꿀이 들어 쫀득하고 맛있는 말렌카 레몬케이크 커피와 찰떡디저트☕",
+        price: 6500,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20240505_219/1714878488712RIwWc_PNG/20240505_120419.png",
+        title: "말렌카케이크(코코아)",
+        description:
+            "신선한 꿀을 넣어 꾸덕꾸덕 쫀득하고 맛있는 고급스러운 달콤함 코코아파우더 듬뿍 코코아케이크",
+        price: 6500,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20240505_219/1714878488712RIwWc_PNG/20240505_120419.png",
+        title: "몽블랑(페스츄리)",
+        description:
+            "겹겹이 결이 부드럽고 고소한 데니쉬 몽블랑~커피와 어우러져 더 고급진 티타임☕",
+        price: 4000,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20240505_161/1714877371411ep9E4_PNG/20240505_114237.png",
+        title: "플레인번(모카번)",
+        description:
+            "고소하고 담백한 플레인번에 달콤하면서 바삭하고 맛있는 모카번ᆢ달지 않아서 커피와 찰떡 ☕",
+        price: 4500,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20230601_44/1685629643559F3OAg_JPEG/Screenshot_20230519_150736_NAVER.jpg",
+        title: "생강청 400ml(국산.수제)",
+        description:
+            "국산생강을 깨끗히 정성들여 만들었어요~ 집에 두셨다가 컨디션 안좋으실때 따뜻하게 드세요🥃",
+        price: 15000,
+        isRecommand: false
+        , count: 0
+    },
+    {
+        imagePath:
+            "https://ldb-phinf.pstatic.net/20230601_192/1685629872825eibAK_JPEG/20230512_122328.jpg",
+        title: "대추 1리터(국산.수제)",
+        description:
+            "긴시간동안 정성들여 만들었어요👍4~5잔정도의 대용량대추차~달지 않고 진하고 맛있어요~☕️",
+        price: 15000,
+        isRecommand: false
+        , count: 0
+    },
 ];
 
 
