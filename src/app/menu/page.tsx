@@ -60,7 +60,7 @@ const MenuCard = ({ menu, onClick }: MenuCardProps) => {
           }}
         />
       </Box>
-      <Stack gap={2} p={5}>
+      <Stack gap={2} p={5} width={width -150}>
         <Box display={"flex"} justifyContent={"space-between"}>
           <Box display={"flex"} flexDirection={"row"}>
             <Box alignContent={"center"} mr={2}>

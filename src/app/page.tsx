@@ -11,6 +11,7 @@ import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import {
   Box,
   Button,
+  Modal,
   Rating,
   Stack,
   Typography,
@@ -18,10 +19,12 @@ import {
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function App() {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery("(min-width:1500px)");
+  const [open, setOpen] = useState<boolean>(false);
 
   const scrollToSection = (sectionId: string) => {
     const sectionElement = document.getElementById(sectionId);
@@ -218,15 +221,17 @@ export default function App() {
                     }}
                   >
                     {`카페 옆 무료주차장 있으나 협소합니다
-                카페 옆 주차가 안되시면, 300m인근에 공영주차장이 있습니다
-                안동 구시장 공영주차장 · 안동시 번영1길 25-12
-                30분 500원, 60분 1,100원`}
+                카페 옆 주차가 안되시면, 300m인근에 공영주차장이 있습니다 (30분 500원, 60분 1,100원)`}
                   </Typography>
-                  <Button startIcon={<PinDropOutlinedIcon />}>
+                  <Button
+                    variant="contained"
+                    // startIcon={<PinDropOutlinedIcon />}
+                    onClick={() => setOpen(true)}
+                  >
                     <Typography
                       variant="h6"
                       sx={{
-                        color: "black",
+                        color: "white",
                       }}
                     >
                       안동 구시장 공영주차장 · 안동시 번영1길 25-12
@@ -273,9 +278,50 @@ export default function App() {
             </ul>
           </Typography>
 
-          <NaverCloudContainer />
+          <NaverCloudContainer
+            lat={36.5662431}
+            lng={128.7269388}
+            height={500}
+          />
         </Stack>
       </Stack>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box
+          sx={{
+            position: "absolute" as "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 600,
+            p: 5,
+          }}
+        >
+          <Stack
+            // bgcolor={theme.palette.background.default}
+            display={"flex"}
+            flexDirection={"row"}
+          >
+            <Typography
+              variant="h6"
+              fontWeight={"bold"}
+              color={"white"}
+              display={"flex"}
+            >
+              안동 구시장 공영주차장 · 안동시 번영1길 25-12
+            </Typography>
+          </Stack>
+          <NaverCloudContainer
+            lat={36.5646828}
+            lng={128.7271418}
+            height={500}
+          />
+        </Box>
+      </Modal>
     </Stack>
   );
 }

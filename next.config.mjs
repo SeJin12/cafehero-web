@@ -3,7 +3,7 @@
 
 const nextConfig = {
     images: {
-        domains: ['ldb-phinf.pstatic.net'],
+        domains: ['ldb-phinf.pstatic.net', 'search.pstatic.net'],
     },
 
 };

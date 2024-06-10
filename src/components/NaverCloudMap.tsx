@@ -5,16 +5,22 @@ import {
   useNavermaps,
 } from "react-naver-maps";
 
-const NaverCloudMap = () => {
+interface Props {
+  lat: number;
+  lng: number;
+  height: number;
+}
+
+const NaverCloudMap = (props: Props) => {
   const navermaps = useNavermaps();
-  const lat = 36.5662431;
-  const lng = 128.7269388;
+  const lat = props.lat;
+  const lng = props.lng;
   const position = new naver.maps.LatLng(lat, lng);
 
   return (
     <MapDiv
       style={{
-        height: 500
+        height: props.height,
       }}
     >
       <NaverMap
